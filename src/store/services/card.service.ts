@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const cardApi = createApi({
     reducerPath: 'cardApi',
     baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_URL }),
-    tagTypes: ['Card'],
+    tagTypes: ['Card', 'Board'],
     endpoints: (builder) => ({
         // GET
         getCardById: builder.query<CardType, string>({
@@ -35,7 +35,7 @@ export const cardApi = createApi({
                 method: 'PATCH',
                 body: data,
             }),
-            invalidatesTags: (result, error, { id }) => [{ type: 'Card', id }],
+            invalidatesTags: [ 'Board' ],
         }),
 
         // DELETE
@@ -50,5 +50,9 @@ export const cardApi = createApi({
 });
 
 export const {
-    
+    useGetCardByIdQuery,
+    useGetCardsByBoardIdQuery,
+    useCreateCardMutation,
+    useUpdateCardMutation,
+    useDeleteCardMutation
 } = cardApi;

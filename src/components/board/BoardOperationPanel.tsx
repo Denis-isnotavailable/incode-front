@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Button } from '../Button';
-import { IoCreateOutline, IoReload, IoTrashOutline } from "react-icons/io5";
+import { IoAdd, IoCreateOutline, IoTrashOutline } from "react-icons/io5";
 import { Modal } from '../Modal';
 import { BoardForm } from './BoardForm';
 import { Operations } from '@/types/types';
@@ -40,8 +40,8 @@ export const BoardOperationPanel = ({boardId, initialName, setBoardId}: BoardOpe
 
     return (
         <div className="flex gap-5 items-center mx-auto p-6 bg-white">
-            <Button onClick={handleCreateBoard}><IoCreateOutline /></Button>
-            {initialName && <Button onClick={handleUpdateBoard}><IoReload /></Button>}
+            <Button onClick={handleCreateBoard}><IoAdd /></Button>
+            {initialName && <Button onClick={handleUpdateBoard}><IoCreateOutline /></Button>}
             {initialName && <Button onClick={handleDeleteBoard}><IoTrashOutline /></Button>}
 
             <Modal
