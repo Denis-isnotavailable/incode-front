@@ -37,7 +37,7 @@ export const EditCardPannel = ({ card }: EditCardPannelProps) => {
             <Modal
                 isOpen={isModalOpen}
                 onClose={handleCloseModal}
-                title={`Card Operation: ${Operations.CREATE}`}
+                title={`Card Operation: ${cardOperationName}`}
             >
                 {cardOperationName === Operations.UPDATE &&
                     <CardForm card={card} onSuccess={handleCloseModal} />}
